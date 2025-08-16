@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Recommended Career Paths</h2>
+{% if recommendations %}
+  <ul class="list-group">
+    {% for path, score in recommendations %}
+      <li class="list-group-item">
+        <h5>{{ path.name }} (Match Score: {{ score }}%)</h5>
+        <p>{{ path.description }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No career paths match your current skill set. Please update your profile.</p>
+{% endif %}
+{% endblock %}
